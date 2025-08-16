@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10x10 Chess</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login" class="login-container">
+        <h2>Enter Password to Access Chess Board</h2>
+        <input type="password" id="password" placeholder="Password">
+        <button id="loginBtn">Enter</button>
+        <p id="error" class="error"></p>
+    </div>
+
+    <div id="chessboard" style="display:none;">
+        <h2>10x10 Chess Board</h2>
+        <div class="board"></div>
+        <div id="pieces" class="pieces"></div>
+        <p id="instructions">Select a piece below, then click on the board to place it. Right‑click a square to remove its piece. You can re‑arrange pieces anytime.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
