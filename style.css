@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.error {
+    color: red;
+    margin-top: 5px;
+}
+
+#chessboard {
+    margin-top: 20px;
+}
+
+/*
+ * The board uses a responsive grid layout. On larger screens it
+ * renders at a fixed maximum width of 600px. On smaller screens
+ * (phones, tablets), it shrinks to fill most of the viewport width
+ * while keeping a perfect square shape thanks to the `aspect-ratio`
+ * property. Each square maintains its aspect ratio and font sizes
+ * scale down gracefully for smaller devices.
+ */
+.board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    max-width: 600px;
+    width: 100%;
+    border: 2px solid #333;
+    aspect-ratio: 1 / 1;
+}
+
+/* Each square is a flexbox container. The `aspect-ratio` property
+ * ensures that the square maintains equal width and height relative
+ * to its parent cell in the grid. The font size will be adjusted
+ * through media queries on small screens. */
+.square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    aspect-ratio: 1 / 1;
+}
+
+.light {
+    background-color: #f0d9b5;
+}
+
+.dark {
+    background-color: #b58863;
+}
+
+#pieces {
+    margin-top: 10px;
+}
+
+/* Piece selection buttons. These will wrap onto multiple lines
+ * automatically as the screen narrows. Font size is reduced
+ * slightly on mobile devices via media query below. */
+.piece-btn {
+    margin: 5px;
+    padding: 8px 12px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.piece-btn.selected {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+#instructions {
+    max-width: 600px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 650px) {
+    /* Shrink the board to fit comfortably on mobile devices */
+    .board {
+        max-width: 90vw;
+        width: 90vw;
+    }
+    /* Scale down piece text on squares */
+    .square {
+        font-size: 4vw;
+    }
+    /* Make piece buttons larger relative to viewport to remain
+     * tappable, but still responsive */
+    .piece-btn {
+        font-size: 5vw;
+        padding: 5px 8px;
+    }
+    /* Instructions text scales slightly */
+    #instructions {
+        font-size: 3.5vw;
+    }
+}
