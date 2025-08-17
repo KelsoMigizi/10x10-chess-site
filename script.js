@@ -15,6 +15,13 @@ const errorMsg = document.getElementById('error');
 const loginContainer = document.getElementById('login');
 const boardContainer = document.getElementById('chessboard');
 
+// Clear any stale error message on page load. This helps in cases where the
+// browser caches the HTML from a previous deployment and leaves the
+// "Incorrect password" text visible. Resetting here ensures a clean state.
+if (errorMsg) {
+    errorMsg.textContent = '';
+}
+
 // Track the currently active passphrase and board state
 let currentPassword = null;
 let boardState = [];
